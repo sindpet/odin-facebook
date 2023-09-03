@@ -29,7 +29,7 @@
           <h5>Users</h3>
           <ul>
             <% User.all.each do |user| %>
-              <li><%= user.email %></li>
+              <li><%= link_to profile_path(user) do %><div><%= user.email %></div><% end %></li>
             <% end %>
           </ul>
         </div>
