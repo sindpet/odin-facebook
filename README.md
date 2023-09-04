@@ -1,24 +1,23 @@
-# README
+This is the [final project](https://www.theodinproject.com/lessons/ruby-on-rails-rails-final-project) in [The Odin Project](http://www.theodinproject.com)’s Ruby on Rails curriculum.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This project uses Ruby v3.2.2 and Rails v7.0.7.2.
 
-Things you may want to cover:
+## How to run
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+1. Clone this repo and change into folder
+    ```
+    git clone git@github.com:sindpet/odin-facebook.git
+    cd odin-facebook
+    ```
+1. Install dependencies
+    ```
+    bundle install
+    ```
+1. Make sure you have PostgreSQL database installed and its service running ([hint](https://www.theodinproject.com/lessons/ruby-on-rails-installing-postgresql#installing-postgresql)), then setup the needed database
+    ```
+    rails db:setup
+    ```
+1. Start the server
+    ```
+    rails s
+    ```
