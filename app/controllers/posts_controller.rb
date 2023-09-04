@@ -5,6 +5,11 @@ class PostsController < ApplicationController
     @posts = Post.where(user_id: user_ids).order(created_at: :desc)
   end
 
+  def show
+    @post = Post.find(params[:id])
+
+  end
+
   def create
     @post = current_user.posts.new(post_params)
 
