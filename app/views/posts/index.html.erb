@@ -1,17 +1,16 @@
-<h1>Posts#index</h1>
-
-<div>This is a test if Bootstrap works correctly...</div>
-
-<div class="container text-center my-5">
-  <div class="row">
-    <div class="col">
-      Column
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-10 mb-5 ">
+      <%= render "form" %>
     </div>
-    <div class="col">
-      Column
-    </div>
-    <div class="col">
-      Column
+  </div>
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <%= turbo_frame_tag "posts", class: "" do %>
+        <% @posts.each do |post| %>
+          <%= render partial: "post", locals: { post: post } %>
+        <% end %>
+      <% end %>
     </div>
   </div>
 </div>

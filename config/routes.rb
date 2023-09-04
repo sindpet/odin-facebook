@@ -8,6 +8,8 @@ Rails.application.routes.draw do
       delete 'unfriend', to: 'friend_requests#unfriend'
     end
   end
+
+  resources :posts, except: [:edit, :update]
   # Defines the root path route ("/")
   root "posts#index"
 end
