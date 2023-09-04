@@ -25,7 +25,7 @@
             <li class="nav-item">
               <% friends_link_class = FriendRequest.where(friendee_id: current_user.id, status: false).count > 0 ?
                   "nav-link text-danger fw-bold" : "nav-link" %>
-              <%= link_to "Friends", "", class: friends_link_class %>
+              <%= link_to "Friends", friends_path, class: friends_link_class %>
             </li>
           </ul>
 

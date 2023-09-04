@@ -1,0 +1,20 @@
+<h5>Friend list</h5>
+
+<div class="container my-5">
+  <div class="row justify-content-center">
+    <div class="col-10">
+      <ul>
+      <% @friends.each do |friend| %>
+        <div class="hstack gap-2">
+          <%= profile_image(friend, class: "w-25") %>
+          <div class="vstack gap-3 justify-content-center">
+            <div>
+            <h1><%= friend.email %></h1>
+            </div>
+          </div>
+        </div>
+      <% end %>
+      </ul>
+    </div>
+  </div>
+</div>

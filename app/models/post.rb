@@ -3,5 +3,5 @@ class Post < ApplicationRecord
 
   validates :body, length: { minimum: 1 }, allow_blank: false
 
-  has_many :comments
+  has_many :comments, dependent: :destroy
 end

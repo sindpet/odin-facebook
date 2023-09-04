@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :posts, except: [:edit, :update] do
     resources :comments, only: [:create, :destroy]
   end
+
+  get 'friends', to: 'friends#index'
   # Defines the root path route ("/")
   root "posts#index"
 end
