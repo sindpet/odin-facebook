@@ -1,0 +1,7 @@
+<%= form_with model: [post, @comment], data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |form| %>
+  <%= form.text_area :body, class: "form-control border border-primary-subtle", placeholder: "Comment something..." %>
+
+  <div class="justify-content-end">
+    <%= form.submit "Add comment", class: "btn btn-primary" %>
+  </div>
+<% end %>
