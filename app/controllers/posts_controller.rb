@@ -1,7 +1,8 @@
 class PostsController < ApplicationController
   def index
     @post = Post.new
-    @posts = Post.all.order(created_at: :desc)
+    user_ids = current_user.friends.pluck(:id).append(current_user.id)
+    @posts = Post.where(user_id: user_ids).order(created_at: :desc)
   end
 
   def create

@@ -24,10 +24,12 @@
   </div>
 </div>
 
-<div class="row justify-content-center my-5">
-  <div class="col-10">
-    <% @user.posts.each do |post| %>
-      <%= render partial: "posts/post", locals: { post: post } %>
-    <% end %>
+<% if current_user.id == @user.id || current_user.friends.exists?(id: @user.id) %>
+  <div class="row justify-content-center my-5">
+    <div class="col-10">
+      <% @user.posts.each do |post| %>
+        <%= render partial: "posts/post", locals: { post: post } %>
+      <% end %>
+    </div>
   </div>
-</div>
+<% end %>
