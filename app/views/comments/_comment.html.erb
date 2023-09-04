@@ -4,7 +4,7 @@
       <%= profile_image(comment.user, class: "w-100") %>
     </div>
     <div class="col-10">
-      <p class=""><%= link_to comment.user.email, profile_path(comment.user), class: "", data: { turbo: false } %></p>
+      <p class=""><%= link_to comment.user.name, profile_path(comment.user), class: "", data: { turbo: false } %></p>
       <div class="text-black "><%= comment.body %></div>
 
       <div class="row justify-content-center">

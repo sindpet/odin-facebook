@@ -4,7 +4,7 @@
       <%= profile_image(post.user, class: "w-100") %>
     </div>
     <div class="col-10">
-      <p class=""><%= link_to post.user.email, profile_path(post.user), class: "", data: { turbo: false } %></p>
+      <p class=""><%= link_to post.user.name, profile_path(post.user), class: "", data: { turbo: false } %></p>
       <%= link_to post, data: { turbo: false }, class: "link-underline-light" do %>
         <div class="text-black "><%= post.body %></div>
       <% end %>
