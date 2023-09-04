@@ -58,14 +58,14 @@
     <div class="container-fluid border-top border-primary border-2 text-center mx-auto p-5">
       <div class="row g-2">
         <div class="col border border-secondary border-3">
-          My Links
+          <h5>My links</h5>
         </div>
         <div class="col-7 border border-secondary border-3">
           <%= yield %>
         </div>
         <div class="col overflow-auto border border-secondary border-3">
-          <h5>Users</h3>
-          <ul>
+          <h5>Users</h5>
+          <ul class="list-unstyled">
             <% User.all.each do |user| %>
               <li><%= link_to profile_path(user) do %><div><%= user.email %></div><% end %></li>
             <% end %>
