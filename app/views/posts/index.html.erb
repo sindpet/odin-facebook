@@ -1,12 +1,12 @@
-<div class="container my-5">
+<div class="container">
   <div class="row justify-content-center">
-    <div class="col-10 mb-5 ">
+    <div class="col-10 my-4">
       <%= render "form" %>
     </div>
   </div>
   <div class="row justify-content-center">
     <div class="col-10">
-      <%= turbo_frame_tag "posts", class: "" do %>
+      <%= turbo_frame_tag "posts" do %>
         <% @posts.each do |post| %>
           <%= render partial: "post", locals: { post: post } %>
         <% end %>

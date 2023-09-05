@@ -1,17 +1,27 @@
-<div class="container pb-5" id="<%= dom_id(post) %>">
+<div class="container pb-2 mb-5 shadow-lg border border-secondary border-opacity-25 rounded" id="<%= dom_id(post) %>">
   <div class="row align-items-center">
-    <div class="col-2">
-      <%= profile_image(post.user, class: "w-100") %>
+    <div class="col-auto">
+      <%= image_tag profile_image(post.user), class: "img-fluid rounded-circle", width: "60px" %>
     </div>
     <div class="col-10">
-      <p class=""><%= link_to post.user.name, profile_path(post.user), class: "", data: { turbo: false } %></p>
-      <%= link_to post, data: { turbo: false }, class: "link-underline-light" do %>
-        <div class="text-black "><%= post.body %></div>
-      <% end %>
-
-      <div class="container">
-        <%= render "posts/controls", post: post %>
+      <div class="">
+        <%= link_to post.user.name, profile_path(post.user),
+              class: "link-dark fw-semibold link-underline link-underline-opacity-0 link-underline-opacity-75-hover",
+              data: { turbo: false } %>
       </div>
+      <div class="">
+        <%= link_to post, data: { turbo: false },
+              class: "link-secondary link-underline link-underline-opacity-0 link-underline-opacity-75-hover",
+              style: "font-size: 14px" do %>
+          <%= post.created_at.strftime("%d. %m. %Y %H:%M") %>
+        <% end %>
+      </div>
+    </div>
+    <div class="col-12">
+      <div class="fs-5 py-1">
+        <%= post.body %>
+      </div>
+      <%= render "posts/controls", post: post %>
     </div>
   </div>
 </div>

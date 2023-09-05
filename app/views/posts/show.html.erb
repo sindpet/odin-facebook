@@ -1,19 +1,28 @@
-<div class="row justify-content-center my-5">
-  <div class="col-10">
-    <%= render @post %>
-  </div>
-  <div class="col-10">
-    <div class="w-75 ms-auto my-5">
-      <%= turbo_frame_tag "#{dom_id(@post)}_comment_form" do %>
-        <%= render "comments/form", post: @post %>
-      <% end %>
+<div class="container border border-primary border-1">
+  <div class="row justify-content-center my-4 border border-primary border-1">
+    <div class="col-10">
+      <%= render @post %>
     </div>
-    <%= turbo_frame_tag "#{dom_id(@post)}_comments" do %>
-      <% if @comments.any? %>
-        <% @comments.each do |comment| %>
-          <%= render "comments/comment", comment: comment %>
-        <% end %>
-      <% end%>
-    <% end %>
+    <div class="col-10">
+      <div class="row">
+        <div class="col-10 ms-auto">
+          <%= turbo_frame_tag "#{dom_id(@post)}_comment_form" do %>
+            <%= render "comments/form", post: @post %>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="row mt-2">
+        <div class="col-10 ms-auto">
+          <%= turbo_frame_tag "#{dom_id(@post)}_comments" do %>
+            <% if @comments.any? %>
+              <% @comments.each do |comment| %>
+                <%= render "comments/comment", comment: comment %>
+              <% end %>
+            <% end%>
+          <% end %>
+        </div>
+      </div>
+    </div>
   </div>
 </div>

@@ -1,7 +1,14 @@
-<%= form_with model: @post, data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |form| %>
-  <%= form.text_area :body, class: "form-control border border-primary-subtle", placeholder: "What's on your mind?" %>
+<%= form_with model: @post,
+      data: { controller: "reset-form", action: "turbo:submit-end->reset-form#reset" } do |form| %>
+  <%= form.text_area :body, class: "form-control border border-secondary-subtle", placeholder: "What's on your mind?" %>
 
-  <div class="justify-content-end">
-    <%= form.submit "Add post", class: "btn btn-primary" %>
+  <%= form.submit "Add post", class: "btn btn-primary float-end" %>
+
+  <div>
+    <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
   </div>
 <% end %>

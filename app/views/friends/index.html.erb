@@ -6,7 +6,7 @@
       <ul>
       <% @friends.each do |friend| %>
         <div class="hstack gap-2">
-          <%= profile_image(friend, class: "w-25") %>
+          <%= image_tag profile_image(friend), class: "w-25" %>
           <div class="vstack gap-3 justify-content-center">
             <div>
             <h1><%= friend.email %></h1>

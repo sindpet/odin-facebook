@@ -1,5 +1,5 @@
 <div class="hstack gap-2">
-  <%= profile_image(@user, class: "w-25") %>
+  <%= image_tag profile_image(@user), class: "w-25 rounded-circle" %>
   <div class="vstack gap-3 justify-content-center">
     <div>
       <h1><%= @user.name %></h1>
