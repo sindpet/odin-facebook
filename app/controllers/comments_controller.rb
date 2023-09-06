@@ -9,7 +9,8 @@ class CommentsController < ApplicationController
         format.turbo_stream
       else
         format.html do
-          redirect_to post_path(@post), alert: "Comment could not be created"
+          flash[:comment_errors] = @comment.errors.full_messages
+          redirect_to post_path(@post)
         end
       end
     end
@@ -17,12 +18,14 @@ class CommentsController < ApplicationController
 
   def destroy
     @comment = @post.comments.find(params[:id])
-    @comment.destroy
 
     respond_to do |format|
-      format.turbo_stream
-      format.html do
-        redirect_to post_path(@post), alert: "Comment could not be deleted"
+      if @comment.destroy
+        format.turbo_stream
+      else
+        format.html do
+          redirect_to post_path(@post), alert: "Comment could not be deleted"
+        end
       end
     end
   end

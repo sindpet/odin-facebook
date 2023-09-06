@@ -52,9 +52,9 @@
 
     <div class="container-fluid py-2">
       <div class="row vh-100">
-        <div class="col border border-primary border-1">
+        <div class="col">
           <div class="row">
-            <%= link_to profile_path(current_user) do %>
+            <%= link_to profile_path(current_user), class: "link-dark fw-semibold link-underline link-underline-opacity-0 link-underline-opacity-75-hover" do %>
               <div class="row align-items-center">
                 <div class="col-2 p-1 d-none d-md-block ">
                   <%= image_tag profile_image(current_user), class: "img-fluid rounded-circle mx-auto d-block", width: "50px" %>
@@ -86,14 +86,14 @@
             </div>
           </div>
         </div>
-        <div class="col-6 border border-primary border-1 h-100 overflow-y-scroll">
+        <div class="col-6 h-100 overflow-y-scroll">
           <%= yield %>
         </div>
-        <div class="col border border-primary border-1 overflow-y-scroll">
+        <div class="col overflow-y-scroll">
           <h5>Contacts</h5>
           <div class="row">
-            <% User.all.order(created_at: :asc).each do |user| %>
-              <%= link_to profile_path(user) do %>
+            <% current_user.friends.includes(:profile_pic_attachment).order(created_at: :asc).each do |user| %>
+              <%= link_to profile_path(user), class: "link-dark fw-semibold link-underline link-underline-opacity-0 link-underline-opacity-75-hover" do %>
                 <div class="row align-items-center">
                   <div class="col-2 p-2">
                     <%= image_tag profile_image(user), class: "img-fluid rounded-circle mx-auto d-block", width: "40px" %>
