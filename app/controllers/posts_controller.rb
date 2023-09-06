@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   def index
     @post = Post.new
     user_ids = current_user.friends.pluck(:id).append(current_user.id)
-    @posts = Post.where(user_id: user_ids).includes(:user).order(created_at: :desc)
+    @posts = Post.where(user_id: user_ids).includes(user: :profile_pic_attachment).order(created_at: :desc)
 
     # @posts_liked_by_current_user = @posts.joins(:likes).where("likes.user_id" == current_user.id).pluck(:id)
   end

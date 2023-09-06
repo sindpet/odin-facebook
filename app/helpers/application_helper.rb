@@ -1,6 +1,14 @@
 module ApplicationHelper
   def profile_image(user)
-    user.profile_pic_url? ? user.profile_pic_url : "https://doodleipsum.com/700/avatar-2?i=bf8b97258fa53643f64755c68b08041b"
+    if user.profile_pic.attached?
+      user.profile_pic
+    elsif user.profile_pic_url?
+      user.profile_pic_url
+    else
+      "https://doodleipsum.com/700/avatar-2?i=bf8b97258fa53643f64755c68b08041b"
+    end
+
+    # user.profile_pic_url? ? user.profile_pic_url : "https://doodleipsum.com/700/avatar-2?i=bf8b97258fa53643f64755c68b08041b"
 
     ##options[:class] = "" if options[:class].nil?
 #

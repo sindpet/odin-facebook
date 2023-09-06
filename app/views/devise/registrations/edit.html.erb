@@ -14,6 +14,11 @@
   </div>
 
   <div class="field">
+    <%= f.label :profile_pic %><br />
+    <%= f.file_field :profile_pic, autocomplete: "profile_pic" %>
+  </div>
+
+  <div class="field">
     <%= f.label :profile_pic_url %><br />
     <%= f.text_field :profile_pic_url, autocomplete: "profile_pic_url" %>
   </div>
