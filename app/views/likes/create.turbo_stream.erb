@@ -1,5 +1,5 @@
 <%= turbo_stream.update("#{dom_id(@likeable)}_likes") do %>
-  <%= render "likes/likes", likeable: @likeable %>
+  <%= render "likes/likes", likeable: @likeable, liked: @likeable.liked_by?(current_user) %>
 <% end %>
 
 <%= turbo_stream.update_all(".#{dom_id(@likeable)}_likes-size", @likeable.likes.count) %>

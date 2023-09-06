@@ -1,4 +1,4 @@
-<% btn_class = likeable.liked_by?(current_user) ? " btn-primary" : " btn-outline-primary" %>
+<% btn_class = liked ? " btn-primary" : " btn-outline-primary" %>
 
 <%= button_to likes_path(likeable_id: likeable.id, likeable_type: likeable.model_name.name), method: :post,
      class: "btn border border-0" + btn_class do %>

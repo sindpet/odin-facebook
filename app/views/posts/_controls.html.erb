@@ -2,7 +2,7 @@
   <div class="row justify-content-evenly">
     <div class="col-3">
       <%= turbo_frame_tag "#{dom_id(post)}_likes" do %>
-        <%= render "likes/likes", likeable: post %>
+        <%= render "likes/likes", likeable: post, liked: liked %>
       <% end %>
     </div>
     <div class="col-auto">
