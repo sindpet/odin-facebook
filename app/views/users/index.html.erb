@@ -10,7 +10,9 @@
       <% end %>
 
       <% if params[:show] == "friends" %>
-        <h5>My friends</h5>
+        <% if !@users.empty? %>
+          <h5>My friends</h5>
+        <% end %>
       <% else %>
         <h5>All users</h5>
       <% end %>
