@@ -15,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :likes, only: :create
 
-  get 'friends', to: 'friends#index'
+  get 'users', to: 'users#index'
   # Defines the root path route ("/")
   root "posts#index"
 end

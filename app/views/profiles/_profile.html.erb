@@ -1,0 +1,29 @@
+<div class="container pb-2 mb-3 shadow-lg border border-secondary border-opacity-25 rounded" id="<%= dom_id(user) %>">
+  <div class="row align-items-center">
+    <div class="col-2">
+      <%= image_tag profile_image(user), class: "img-fluid rounded-circle", width: "100px" %>
+    </div>
+    <div class="col-10">
+      <div class="">
+        <h2><%= user.name %></h2>
+      </div>
+      <div class="">
+        <h5><%= user.email %></h5>
+      </div>
+      <% if current_user.id != user.id %>
+        <div>
+          <% if current_user.friends.exists?(id: user.id) %>
+            <%= button_to "Unfriend", unfriend_profile_path(user.id), method: :delete, form: { data: { turbo_confirm: "Do you really want to unfriend?" } },
+                class: "btn btn-primary" %>
+          <% elsif current_user.friend_requests.exists?(friendee_id: user.id) %>
+            Request pending...
+          <% elsif user.friend_requests.exists?(friendee_id: current_user.id) %>
+            <%= button_to "Accept friend request", accept_friend_request_profile_path(user.id), class: "btn btn-primary" %>
+          <% else %>
+            <%= button_to "Add to friends", send_friend_request_profile_path(user.id), class: "btn btn-primary" %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -25,7 +25,10 @@
             <li class="nav-item">
               <% friends_link_class = FriendRequest.where(friendee_id: current_user.id, status: false).count > 0 ?
                   "nav-link text-danger fw-bold" : "nav-link" %>
-              <%= link_to "Friends", friends_path, class: friends_link_class %>
+              <%= link_to "Friends", users_path(show: "friends"), class: friends_link_class %>
+            </li>
+            <li class="nav-item">
+              <%= link_to "All users", users_path, class: "nav-link" %>
             </li>
           </ul>
 
@@ -42,6 +45,7 @@
                 <%= image_tag profile_image(current_user), class: "img-fluid rounded-circle", width: "40px" %>
               </a>
               <ul class="dropdown-menu dropdown-menu-end">
+                <li><%= link_to "Edit my profile",  edit_user_registration_path, class: "dropdown-item" %></li>
                 <li><%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete }, class: "dropdown-item" %></li>
               </ul>
             </li>
