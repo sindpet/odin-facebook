@@ -6,13 +6,13 @@ class PostsController < ApplicationController
     posts_query = Post.where(user_id: user_ids)
 
     @posts = posts_query.includes(user: :profile_pic_attachment).order(created_at: :desc)
-    @posts_liked_by_current_user = posts_query.includes(:likes).where(likes: { user_id: current_user.id}).pluck(:id)
+    @posts_liked_by_current_user = posts_query.includes(:likes).where(likes: {user_id: current_user.id}).pluck(:id)
   end
 
   def show
     @post = Post.find(params[:id])
     @comment = Comment.new
-    @comments = @post.comments.order(created_at: :desc)
+    @comments = @post.comments.includes(:user).order(created_at: :desc)
   end
 
   def create

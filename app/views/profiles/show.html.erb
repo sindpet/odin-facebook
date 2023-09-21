@@ -4,8 +4,8 @@
 <div class="container">
   <div class="row justify-content-center my-5">
     <div class="col-10">
-      <% @user.posts.each do |post| %>
-        <%= render partial: "posts/post", locals: { post: post } %>
+      <% @posts.each do |post| %>
+        <%= render partial: "posts/post", locals: { post: post, liked: post.id.in?(@posts_liked_by_current_user) } %>
       <% end %>
     </div>
   </div>
